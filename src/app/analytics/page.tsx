@@ -5,6 +5,7 @@ import { getDate } from "@/utils";
 const Page = async () => {
   const TRACKING_DAYS = 7;
 
+  // change or +add new line of this pageview to any page you want to track
   const pageviews = await analytics.retrieveDays("pageview", TRACKING_DAYS);
 
   const totalPageviews = pageviews.reduce((acc, curr) => {
@@ -33,6 +34,7 @@ const Page = async () => {
         <AnalyticsDashboard
           avgVisitorsPerDay={avgVisitorsPerDay}
           amtVisitorsToday={amtVisitorsToday}
+          timeseriesPageviews={pageviews}
         />
       </div>
     </div>
