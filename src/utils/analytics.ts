@@ -26,6 +26,8 @@ export class Analytics {
 
     await redis.hincrby(key, JSON.stringify(event), 1);
     // hash increment by
+
+    if (!opts?.persist) await redis.expire(key, this.retention);
   }
 }
 
