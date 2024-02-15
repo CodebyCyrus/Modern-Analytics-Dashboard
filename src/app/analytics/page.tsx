@@ -1,7 +1,9 @@
-import React from "react";
+import { analytics } from "@/utils/analytics";
 
-const page = () => {
-  return <div>page</div>;
+const Page = async () => {
+  const pageview = await analytics.retrieve("pageview", "");
+
+  return <pre>{JSON.stringify(pageview)}</pre>;
 };
 
-export default page;
+export default Page;
